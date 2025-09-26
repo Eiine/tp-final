@@ -38,21 +38,22 @@ export async function obtenerLibroPorID(id) {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log(docSnap.data());
+      return { id: docSnap.id, ...docSnap.data() }; // <-- devolver datos
     } else {
       console.log("No existe el libro");
+      return null;
     }
   } catch (error) {
     console.error("Error obteniendo libro por ID:", error);
+    return null;
   }
 }
 
-export async function actualizarLibro(id) {
+
+export async function actualizarLibro(id, datosActualizados) {
   try {
     const docRef = doc(db, "libros", id);
-    await updateDoc(docRef, {
-      detalle: "Detalle actualizado"
-    });
+    await updateDoc(docRef, datosActualizados); 
     console.log("Libro actualizado");
   } catch (error) {
     console.error("Error actualizando libro:", error);
