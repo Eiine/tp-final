@@ -1,6 +1,5 @@
 // Inicio.jsx
 import React, { useEffect, useState } from "react";
-
 import { obtenerLibros } from "../util/crud";
 import styles from "./inicio.module.css"; 
 import { Link } from "react-router-dom";
