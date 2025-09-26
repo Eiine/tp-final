@@ -1,0 +1,45 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* tarjetas más pequeñas */
+  gap: 1rem; /* menos espacio entre tarjetas */
+  padding: 1rem;
+}
+
+.card {
+  background-color: #1f2937; 
+  color: #e5e7eb;           
+  border-radius: 0.5rem;
+  padding: 0.75rem; /* menos padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sombra más sutil */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.imagen {
+  width: 100%;
+  height: 100px; /* más pequeña */
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.titulo {
+  font-size: 1rem; /* más pequeño */
+  margin-bottom: 0.25rem;
+}
+
+.detalle {
+  font-size: 0.75rem; /* más pequeño */
+  color: #d1d5db;
+
+  /* --- nuevo: limitar a 2 líneas con puntos suspensivos --- */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* cantidad de líneas visibles */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
